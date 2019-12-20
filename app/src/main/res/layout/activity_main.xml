@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="314dp"
+        android:layout_height="314dp"
+        android:layout_gravity="center"
+        android:background="@drawable/shape_rectangle_solid_white_corner5">
+        <!--12个View的父容器-->
+        <com.example.myapplication.TwelveLuckPanLayoutV2
+            android:id="@+id/luck_drawa_twelevluck"
+            android:layout_width="308dp"
+            android:layout_height="308dp"
+            android:layout_gravity="center"
+            android:background="@color/liba_720f1b" />
+
+        <!--开始按钮-->
+        <ImageView
+            android:id="@+id/luck_drawa_startchou"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_go" />
+
+        <!--和TwelveLuckPanLayoutV2宽高大小保持一致，为了后面计算方便-->
+        <FrameLayout
+            android:layout_width="308dp"
+            android:layout_height="308dp"
+            android:layout_gravity="center">
+            <!--红色的FrameLayout-->
+            <FrameLayout
+                android:id="@+id/fl_luck_drawa_work_kuang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <!--蓝色的ImageView-->
+                <ImageView
+                    android:id="@+id/iv_luck_drawa_work_kuang"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/icon_work_kuang" />
+
+            </FrameLayout>
+
+
+        </FrameLayout>
+    </FrameLayout>
+
+</FrameLayout>
