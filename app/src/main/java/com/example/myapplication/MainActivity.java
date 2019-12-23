@@ -2,11 +2,13 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AnticipateOvershootInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -88,9 +90,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     flWorkKuangLayout.setTranslationX(0);
                 }
 
-                if (repecount == 2 && !isSetting) {
+                if (animation.getRepeatCount() == repecount && !isSetting) {
                     int trans = oneItem * position;
                     valueAnimator.setIntValues(trans);
+                    valueAnimator.setInterpolator(new MyInterceper(animation));
                     isSetting = true;
                 }
             }
@@ -126,6 +129,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 flWorkKuangLayout.setTranslationX(0);
             }
         });
+        int count = (int) Math.round(Math.random() + 1);
+        Log.i(TAG,"count:"+count);
         valueAnimator.setRepeatCount(2);
         valueAnimator.setInterpolator(new LinearInterpolator());
         valueAnimator.setDuration(1000);
