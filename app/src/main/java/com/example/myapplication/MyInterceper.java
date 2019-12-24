@@ -6,18 +6,13 @@ import android.util.Log;
 
 public class MyInterceper implements TimeInterpolator {
     private String TAG = MyInterceper.class.getSimpleName();
-    private Animator animator;
-
-    public MyInterceper(Animator animator) {
-        this.animator = animator;
-    }
 
     @Override
     public float getInterpolation(float input) {
         float resultValue = input;
         if (input>=0.5f){
-        resultValue = (float) (Math.cos((input + 2) * Math.PI) / 2.0f) + 0.5f;
-        resultValue = 1- resultValue;
+            input = input + 1;
+            resultValue = (float) (Math.cos(input * Math.PI) / 2.0f) + 0.5f;
         }
         Log.i(TAG, "resultValue:" + resultValue);
         return resultValue;
